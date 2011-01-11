@@ -7,6 +7,10 @@ gem 'rails', '3.0.3'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
+gem 'rspec'
+gem 'rspec-rails'
+gem 'recaptcha'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
