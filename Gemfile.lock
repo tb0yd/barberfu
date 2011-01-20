@@ -1,3 +1,15 @@
+GIT
+  remote: git://github.com/outoftime/sunspot.git
+  revision: a6ac03652c75711e41d7a3d0ffb677c8db93ce85
+  specs:
+    sunspot (1.2.1)
+      escape (= 0.0.4)
+      pr_geohash (~> 1.0)
+      rsolr (= 0.12.1)
+    sunspot_rails (1.2.1)
+      nokogiri
+      sunspot (= 1.2.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -33,6 +45,7 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    escape (0.0.4)
     i18n (0.5.0)
     mail (2.2.14)
       activesupport (>= 2.3.6)
@@ -40,7 +53,9 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    nokogiri (1.4.4)
     polyglot (0.3.1)
+    pr_geohash (1.0.0)
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
@@ -61,6 +76,8 @@ GEM
       thor (~> 0.14.4)
     rake (0.8.7)
     recaptcha (0.3.1)
+    rsolr (0.12.1)
+      builder (>= 2.1.2)
     rspec (2.4.0)
       rspec-core (~> 2.4.0)
       rspec-expectations (~> 2.4.0)
@@ -89,3 +106,5 @@ DEPENDENCIES
   rspec
   rspec-rails
   sqlite3-ruby
+  sunspot (= 1.2.1)!
+  sunspot_rails

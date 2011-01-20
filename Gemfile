@@ -10,6 +10,9 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'rspec'
 gem 'rspec-rails'
 gem 'recaptcha'
+gem 'sunspot', '1.2.1', :git => "git://github.com/outoftime/sunspot.git"
+gem 'sunspot_rails'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
