@@ -1,0 +1,6 @@
+<% form_for @review do |f| %>
+  Name: <%= f.text_field :name %><br />
+  Zip: <%= f.text_field :zip %><br />
+  Your Review: <%= f.text_field :full %><br />
+  <%= f.submit %>
+<% end %>

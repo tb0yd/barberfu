@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BarberFu</title>
+</head>
+<body>
+  <h2><%= link_to "Post a new review", new_review_path %></h2>
+  <h3>Search reviews</h3>
+  <%= form_tag '/reviews/search' %>
+  <%= text_field_tag :name %>
+  <%= submit_tag 'Search' %>
+  <hr />
+  <h3>Results</h3>
+  <% (@reviews || []).each do |review| %>
+    <%= review %><br />
+  <% end %>
+</body>
+</html>
