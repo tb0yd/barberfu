@@ -1,8 +1,12 @@
 require 'text'
 
 class Review < ActiveRecord::Base
+  validate :typo_check
   def typo_check
-
+    TypoCheck.dictionary = Review.all.collect(&:name)
+    if TypoCheck[self.name].result
+      @errors.add(:name, "typo detected")
+    end
   end
 end
 
