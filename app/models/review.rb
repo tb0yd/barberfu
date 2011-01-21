@@ -8,6 +8,11 @@ class Review < ActiveRecord::Base
       @errors.add(:name, "typo detected") unless self.name_match
     end
   end
+  
+  def self.search(name)
+    TypoCheck.dictionary = Review.all.collect(&:name)
+    TypoCheck[name].good_matches
+  end
 end
 
 class TypoCheck
@@ -30,5 +35,9 @@ class TypoCheck
   def best_match
     matches = @@dictionary.select { |item| Text::Levenshtein.distance(@word, item) == 1 }
     matches[0]
+  end
+  
+  def good_matches
+    @@dictionary.select { |item| Text::Levenshtein.distance(@word, item) < 2 }
   end
 end

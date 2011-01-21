@@ -21,6 +21,20 @@ describe Review do
     subject { Review.new(:name => "Choice Cuts", :name_match => "Choice Cutts") }
     it {should be_valid}
   end
+  
+  describe "#search" do
+    subject { Review.search(@arg) }
+    
+    context "exact search" do
+      before { @arg = "Choice Cutts" }
+      it {should == ["Choice Cutts"]}
+    end
+    
+    context "inexact search" do
+      before { @arg = "Choice Cuts" }
+      it {should == ["Choice Cutts"]}
+    end
+  end
 end
 
 describe TypoCheck do
@@ -38,5 +52,24 @@ describe TypoCheck do
   context "new word" do
     subject { TypoCheck["four"].result }
     it {should == nil}
+  end
+  
+  describe "#good_matches" do
+    subject { TypoCheck[@arg].good_matches }
+    
+    context "exact match" do
+      before { @arg = "one" }
+      it {should == ["one"]}
+    end
+    
+    context "inexact match" do
+      before { @arg = "on" }
+      it {should == ["one"]}
+    end
+    
+    context "no match" do
+      before { @arg = "four" }
+      it {should == []}
+    end
   end
 end
