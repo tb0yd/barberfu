@@ -16,6 +16,11 @@ describe Review do
     subject { Review.new(:name => "Choice Cuts") }
     it {should_not be_valid}
   end
+
+  context "yes typo with name match" do
+    subject { Review.new(:name => "Choice Cuts", :name_match => "Choice Cutts") }
+    it {should be_valid}
+  end
 end
 
 describe TypoCheck do

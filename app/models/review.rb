@@ -5,7 +5,7 @@ class Review < ActiveRecord::Base
   def typo_check
     TypoCheck.dictionary = Review.all.collect(&:name)
     if TypoCheck[self.name].result
-      @errors.add(:name, "typo detected")
+      @errors.add(:name, "typo detected") unless self.name_match
     end
   end
 end
